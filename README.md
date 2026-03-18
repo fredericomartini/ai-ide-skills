@@ -7,15 +7,15 @@ Cursor skill routing rules for your projects. Installs a smart skill router that
 From the root of **any project** where you want the Cursor rules set up:
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/fredericoalmeida/ide-skills/main/install-cursor-skills.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/fredericomartini/ai-ide-skills/main/install-cursor-skills.sh)
 ```
 
 Or clone and run locally:
 
 ```bash
-git clone https://github.com/fredericoalmeida/ide-skills.git
+git clone https://github.com/fredericomartini/ai-ide-skills.git
 cd your-project
-../ide-skills/install-cursor-skills.sh
+../ai-ide-skills/install-cursor-skills.sh
 ```
 
 This will:
