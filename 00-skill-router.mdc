@@ -1,0 +1,70 @@
+---
+description: Skill routing instructions for every prompt
+alwaysApply: true
+---
+
+# STOP — Read this first
+
+Your **first action** must be to load skills. Do not write code, run commands, or answer until you have done this.
+
+**Read from:** `.cursor/rules/<skill-name>.mdc` (symlinked to ~/.cursor/skills/<skill-name>/SKILL.md)
+
+---
+
+## Step 1: Choose skills (required)
+
+Scan the user's prompt. Match to the table below. Select **1–3 skills maximum**. If the prompt involves coding in this repo (NestJS, API, backend), **default to at least nestjs-expert and backend-dev-guidelines**.
+
+| Context / keywords                                 | Skill name              |
+| -------------------------------------------------- | ----------------------- |
+| NestJS, services, controllers, guards, pipes, DTOs | nestjs-expert           |
+| REST API, endpoints, routes, HTTP methods          | api-design-principles   |
+| Backend, Node.js, middleware, error handling       | backend-dev-guidelines  |
+| MongoDB, Mongoose, schemas, queries                | nosql-expert            |
+| TypeScript, types, generics, interfaces            | typescript-pro          |
+| Debugging, errors, bugs, stack traces              | systematic-debugging    |
+| Code review, PR review, auditing                   | code-reviewer           |
+| Tests, TDD, Jest, Vitest, pytest                   | javascript-testing-patterns |
+| Architecture, system design, patterns              | architecture            |
+| Search codebase, find code, project structure      | search-specialist       |
+| Python, FastAPI, Django                            | python-pro              |
+| Bash, shell, CLI                                   | bash-pro                |
+| React, frontend, UI                                | react-best-practices    |
+| AWS, Lambda, S3                                    | aws-skills              |
+
+---
+
+## Step 2: Load skills (required — do this before anything else)
+
+**Your first tool call(s) MUST be Read** on the chosen skill file(s).
+
+**Path format:** `.cursor/rules/<skill-name>.mdc`
+
+Example: if you chose nestjs-expert and backend-dev-guidelines, your first two tool calls must be:
+
+1. `Read` on `.cursor/rules/nestjs-expert.mdc`
+2. `Read` on `.cursor/rules/backend-dev-guidelines.mdc`
+
+If no skill matches: skip Read, use no skills.
+
+---
+
+## Step 3: Routing priorities (when multiple categories match)
+
+Combine skills from different categories. Examples:
+
+- "Create a new endpoint to create Users" → nestjs-expert + typescript-pro + api-design-principles
+- "Add a React page that calls the Users API" → react-best-practices
+- "Write tests for the Users service" → javascript-testing-patterns + nestjs-expert
+- "Why is the Users endpoint returning 500?" → systematic-debugging + backend-dev-guidelines
+- "Review my PR" → code-reviewer
+
+**Maximum 3 skills per prompt.** Pick the most relevant ones.
+
+---
+
+## Step 4: Respond
+
+Start your reply with: `**Skills activated:** [skill-name-1], [skill-name-2]` (or `**Skills activated:** none`).
+
+Then answer, following the guidelines from the skills you loaded.
