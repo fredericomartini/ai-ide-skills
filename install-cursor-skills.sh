@@ -8,6 +8,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 RULES_DIR=".cursor/rules"
 CURSOR_SKILLS_DIR="${HOME}/.cursor/skills"
 CODEX_SKILLS_DIR="${HOME}/.codex/skills"
+REPO_RAW="https://raw.githubusercontent.com/fredericomartini/ai-ide-skills/main"
 
 echo "Setting up Cursor rules in: ${RULES_DIR}"
 
@@ -21,12 +22,14 @@ SKILL_ROUTER_FILE="${RULES_DIR}/00-skill-router.mdc"
 SKILL_ROUTER_SOURCE="${SCRIPT_DIR}/00-skill-router.mdc"
 
 if [[ ! -f "${SKILL_ROUTER_FILE}" ]]; then
-  if [[ ! -f "${SKILL_ROUTER_SOURCE}" ]]; then
-    echo "ERROR: Source file not found: ${SKILL_ROUTER_SOURCE}" >&2
-    exit 1
+  if [[ -f "${SKILL_ROUTER_SOURCE}" ]]; then
+    cp "${SKILL_ROUTER_SOURCE}" "${SKILL_ROUTER_FILE}"
+    echo "Created ${SKILL_ROUTER_FILE} (copied from ${SKILL_ROUTER_SOURCE})"
+  else
+    echo "Downloading 00-skill-router.mdc from GitHub ..."
+    curl -fsSL "${REPO_RAW}/00-skill-router.mdc" -o "${SKILL_ROUTER_FILE}"
+    echo "Created ${SKILL_ROUTER_FILE} (downloaded from GitHub)"
   fi
-  cp "${SKILL_ROUTER_SOURCE}" "${SKILL_ROUTER_FILE}"
-  echo "Created ${SKILL_ROUTER_FILE} (copied from ${SKILL_ROUTER_SOURCE})"
 else
   echo "Found existing ${SKILL_ROUTER_FILE}, leaving as is."
 fi
