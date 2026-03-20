@@ -81,3 +81,70 @@ For NestJS/backend work, `nestjs-expert` + `backend-dev-guidelines` are always l
 2. Add a symlink entry in the `RULES` array inside `install-cursor-skills.sh`
 3. Add a keyword row to the routing table in `00-skill-router.mdc`
 4. Re-run `install-cursor-skills.sh` in your project
+
+---
+
+## Personal Claude Code Skills
+
+The `skills/` folder contains personal skills for [Claude Code](https://claude.ai/code) — AI-powered workflows for daily productivity, note-taking, and personal automation.
+
+### Available skills
+
+| Skill | Folder | Description |
+|-------|--------|-------------|
+| Obsidian | `skills/obsidian/` | Full Obsidian vault assistant — add to-dos, capture ideas, manage meeting notes, reading list, and inbox via natural language |
+| End of Day | `skills/end-of-day/` | Daily workflow — morning briefing from Today.md and end-of-day archive + summary |
+
+### Install personal skills into Claude Code
+
+Clone this repo and copy the skills you want into your Claude Code skills directory:
+
+```bash
+git clone https://github.com/fredericomartini/ai-ide-skills.git
+
+# Install a specific skill
+cp -r ai-ide-skills/skills/obsidian ~/.claude/skills/obsidian
+cp -r ai-ide-skills/skills/end-of-day ~/.claude/skills/end-of-day
+
+# Or install all personal skills at once
+for skill in ai-ide-skills/skills/*/; do
+  cp -r "$skill" ~/.claude/skills/"$(basename "$skill")"
+done
+```
+
+### Required: set environment variables
+
+These skills use `$OBSIDIAN_VAULT` to locate your vault. Add it to your Claude Code `settings.json`:
+
+```json
+{
+  "env": {
+    "OBSIDIAN_VAULT": "/path/to/your/Obsidian/vault"
+  }
+}
+```
+
+`settings.json` is typically at `~/.claude/settings.json`.
+
+### Obsidian vault requirements
+
+The skills expect this folder structure inside your vault:
+
+```
+YourVault/
+├── Carbon Voice/
+│   └── Daily/
+│       └── Today.md       ← rolling daily note
+├── Ideas/                 ← one file per developed idea
+├── Meetings/              ← meeting notes by person/date
+├── Personal/              ← personal documents
+├── Scripts/               ← code snippets
+├── INBOX.md               ← brain dump / loose thoughts
+└── READING.md             ← reading / watching list
+```
+
+The `end-of-day` skill also requires `end_of_day.py` at the vault root. Copy it from the skill folder:
+
+```bash
+cp ai-ide-skills/skills/end-of-day/end_of_day.py /path/to/your/vault/end_of_day.py
+```
