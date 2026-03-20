@@ -102,14 +102,9 @@ Clone this repo and copy the skills you want into your Claude Code skills direct
 ```bash
 git clone https://github.com/fredericomartini/ai-ide-skills.git
 
-# Install a specific skill
-cp -r ai-ide-skills/skills/obsidian ~/.claude/skills/obsidian
-cp -r ai-ide-skills/skills/end-of-day ~/.claude/skills/end-of-day
-
-# Or install all personal skills at once
-for skill in ai-ide-skills/skills/*/; do
-  cp -r "$skill" ~/.claude/skills/"$(basename "$skill")"
-done
+# Install skills (PAI requires underscore + uppercase folder names)
+cp -r ai-ide-skills/skills/obsidian ~/.claude/skills/_OBSIDIAN
+cp -r ai-ide-skills/skills/end-of-day ~/.claude/skills/_ENDOFDAY
 ```
 
 ### Required: set environment variables
