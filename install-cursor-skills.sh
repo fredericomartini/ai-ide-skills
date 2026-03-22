@@ -39,22 +39,46 @@ fi
 ######################################
 
 # Each entry: "rule_name.mdc|/path/to/SKILL.md"
+# Only includes skills scored 7+ in quality audit (2026-03-21)
 RULES=(
-  # ~/.cursor/skills/*
-  "api-design-principles.mdc|${CURSOR_SKILLS_DIR}/api-design-principles/SKILL.md"
-  "architecture.mdc|${CURSOR_SKILLS_DIR}/architecture/SKILL.md"
-  "aws-skills.mdc|${CURSOR_SKILLS_DIR}/aws-skills/SKILL.md"
-  "backend-dev-guidelines.mdc|${CURSOR_SKILLS_DIR}/backend-dev-guidelines/SKILL.md"
-  "bash-pro.mdc|${CURSOR_SKILLS_DIR}/bash-pro/SKILL.md"
-  "code-reviewer.mdc|${CURSOR_SKILLS_DIR}/code-reviewer/SKILL.md"
-  "javascript-testing-patterns.mdc|${CURSOR_SKILLS_DIR}/javascript-testing-patterns/SKILL.md"
+  # Core backend — daily use
   "nestjs-expert.mdc|${CURSOR_SKILLS_DIR}/nestjs-expert/SKILL.md"
+  "backend-dev-guidelines.mdc|${CURSOR_SKILLS_DIR}/backend-dev-guidelines/SKILL.md"
   "nosql-expert.mdc|${CURSOR_SKILLS_DIR}/nosql-expert/SKILL.md"
-  "python-pro.mdc|${CURSOR_SKILLS_DIR}/python-pro/SKILL.md"
-  "react-best-practices.mdc|${CURSOR_SKILLS_DIR}/react-best-practices/SKILL.md"
-  "search-specialist.mdc|${CURSOR_SKILLS_DIR}/search-specialist/SKILL.md"
-  "systematic-debugging.mdc|${CURSOR_SKILLS_DIR}/systematic-debugging/SKILL.md"
   "typescript-pro.mdc|${CURSOR_SKILLS_DIR}/typescript-pro/SKILL.md"
+  "typescript-expert.mdc|${CURSOR_SKILLS_DIR}/typescript-expert/SKILL.md"
+  "nodejs-best-practices.mdc|${CURSOR_SKILLS_DIR}/nodejs-best-practices/SKILL.md"
+
+  # API & architecture
+  "api-patterns.mdc|${CURSOR_SKILLS_DIR}/api-patterns/SKILL.md"
+  "architecture.mdc|${CURSOR_SKILLS_DIR}/architecture/SKILL.md"
+
+  # Code quality & review
+  "code-reviewer.mdc|${CURSOR_SKILLS_DIR}/code-reviewer/SKILL.md"
+  "code-review-checklist.mdc|${CURSOR_SKILLS_DIR}/code-review-checklist/SKILL.md"
+  "systematic-debugging.mdc|${CURSOR_SKILLS_DIR}/systematic-debugging/SKILL.md"
+
+  # Testing
+  "javascript-testing-patterns.mdc|${CURSOR_SKILLS_DIR}/javascript-testing-patterns/SKILL.md"
+  "test-driven-development.mdc|${CURSOR_SKILLS_DIR}/test-driven-development/SKILL.md"
+
+  # Frontend
+  "react-best-practices.mdc|${CURSOR_SKILLS_DIR}/react-best-practices/SKILL.md"
+  "nextjs-best-practices.mdc|${CURSOR_SKILLS_DIR}/nextjs-best-practices/SKILL.md"
+  "nextjs-app-router-patterns.mdc|${CURSOR_SKILLS_DIR}/nextjs-app-router-patterns/SKILL.md"
+
+  # Infrastructure
+  "docker-expert.mdc|${CURSOR_SKILLS_DIR}/docker-expert/SKILL.md"
+  "aws-skills.mdc|${CURSOR_SKILLS_DIR}/aws-skills/SKILL.md"
+  "git-advanced-workflows.mdc|${CURSOR_SKILLS_DIR}/git-advanced-workflows/SKILL.md"
+
+  # Security
+  "api-security-best-practices.mdc|${CURSOR_SKILLS_DIR}/api-security-best-practices/SKILL.md"
+  "backend-security-coder.mdc|${CURSOR_SKILLS_DIR}/backend-security-coder/SKILL.md"
+
+  # Python (on demand)
+  "python-pro.mdc|${CURSOR_SKILLS_DIR}/python-pro/SKILL.md"
+  "bash-pro.mdc|${CURSOR_SKILLS_DIR}/bash-pro/SKILL.md"
 
   # ~/.codex/skills/*
   "backend-architect-brain.mdc|${CODEX_SKILLS_DIR}/backend-architect-brain/SKILL.md"

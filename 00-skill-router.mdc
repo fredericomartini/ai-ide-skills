@@ -15,22 +15,31 @@ Your **first action** must be to load skills. Do not write code, run commands, o
 
 Scan the user's prompt. Match to the table below. Select **1–3 skills maximum**. If the prompt involves coding in this repo (NestJS, API, backend), **default to at least nestjs-expert and backend-dev-guidelines**.
 
-| Context / keywords                                 | Skill name              |
-| -------------------------------------------------- | ----------------------- |
-| NestJS, services, controllers, guards, pipes, DTOs | nestjs-expert           |
-| REST API, endpoints, routes, HTTP methods          | api-design-principles   |
-| Backend, Node.js, middleware, error handling       | backend-dev-guidelines  |
-| MongoDB, Mongoose, schemas, queries                | nosql-expert            |
-| TypeScript, types, generics, interfaces            | typescript-pro          |
-| Debugging, errors, bugs, stack traces              | systematic-debugging    |
-| Code review, PR review, auditing                   | code-reviewer           |
-| Tests, TDD, Jest, Vitest, pytest                   | javascript-testing-patterns |
-| Architecture, system design, patterns              | architecture            |
-| Search codebase, find code, project structure      | search-specialist       |
-| Python, FastAPI, Django                            | python-pro              |
-| Bash, shell, CLI                                   | bash-pro                |
-| React, frontend, UI                                | react-best-practices    |
-| AWS, Lambda, S3                                    | aws-skills              |
+| Context / keywords                                        | Skill name                  |
+| --------------------------------------------------------- | --------------------------- |
+| NestJS, services, controllers, guards, pipes, DTOs        | nestjs-expert               |
+| REST API, endpoints, routes, HTTP methods, OpenAPI        | api-patterns                |
+| Backend, Node.js, middleware, error handling              | backend-dev-guidelines      |
+| MongoDB, Mongoose, schemas, queries                       | nosql-expert                |
+| TypeScript, types, generics, interfaces, type errors      | typescript-pro              |
+| TypeScript advanced, decorators, type utilities           | typescript-expert           |
+| Node.js patterns, streams, modules, npm                   | nodejs-best-practices       |
+| Debugging, errors, bugs, stack traces                     | systematic-debugging        |
+| Code review, PR review, auditing                          | code-reviewer               |
+| Review checklist, PR feedback, quality gate               | code-review-checklist       |
+| Tests, TDD, Jest, Vitest, pytest, test suite              | javascript-testing-patterns |
+| TDD cycle, red-green-refactor, test first                 | test-driven-development     |
+| Architecture, system design, patterns, DDD                | architecture                |
+| Python, Django                                            | python-pro                  |
+| Bash, shell, CLI, terminal                                | bash-pro                    |
+| React, frontend, UI, components, hooks                    | react-best-practices        |
+| Next.js, App Router, RSC, server components               | nextjs-best-practices       |
+| Next.js routing, layouts, pages, metadata                 | nextjs-app-router-patterns  |
+| Docker, container, dockerfile, compose                    | docker-expert               |
+| AWS, Lambda, S3, CloudWatch, App Runner                   | aws-skills                  |
+| Git, rebase, cherry-pick, bisect, branch, worktree        | git-advanced-workflows      |
+| Security, JWT, auth, CORS, API hardening                  | api-security-best-practices |
+| Backend security, input validation, injection             | backend-security-coder      |
 
 ---
 
@@ -53,11 +62,14 @@ If no skill matches: skip Read, use no skills.
 
 Combine skills from different categories. Examples:
 
-- "Create a new endpoint to create Users" → nestjs-expert + typescript-pro + api-design-principles
-- "Add a React page that calls the Users API" → react-best-practices
+- "Create a new endpoint to create Users" → nestjs-expert + typescript-pro + api-patterns
+- "Add a React page that calls the Users API" → react-best-practices + nextjs-best-practices
 - "Write tests for the Users service" → javascript-testing-patterns + nestjs-expert
 - "Why is the Users endpoint returning 500?" → systematic-debugging + backend-dev-guidelines
-- "Review my PR" → code-reviewer
+- "Review my PR" → code-reviewer + code-review-checklist
+- "Set up Docker for this service" → docker-expert
+- "Rebase my feature branch" → git-advanced-workflows
+- "Is this endpoint secure?" → api-security-best-practices + backend-security-coder
 
 **Maximum 3 skills per prompt.** Pick the most relevant ones.
 
