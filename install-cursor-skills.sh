@@ -34,8 +34,38 @@ else
   echo "Found existing ${SKILL_ROUTER_FILE}, leaving as is."
 fi
 
+############################################
+# 2) Install personal skills from this repo #
+############################################
+
+PERSONAL_SKILLS=(
+  "backend-architect-brain"
+)
+
+echo "Installing personal skills to ${CODEX_SKILLS_DIR} ..."
+
+for skill in "${PERSONAL_SKILLS[@]}"; do
+  src="${SCRIPT_DIR}/skills/${skill}/SKILL.md"
+  dest_dir="${CODEX_SKILLS_DIR}/${skill}"
+  dest="${dest_dir}/SKILL.md"
+
+  if [[ ! -f "${src}" ]]; then
+    echo "  ! WARNING: Personal skill source not found: ${src}" >&2
+    continue
+  fi
+
+  mkdir -p "${dest_dir}"
+
+  if [[ -f "${dest}" ]]; then
+    echo "  - ${skill} already installed, skipping."
+  else
+    cp "${src}" "${dest}"
+    echo "  + Installed ${skill} -> ${dest}"
+  fi
+done
+
 ######################################
-# 2) Symlink rule → SKILL mappings   #
+# 3) Symlink rule → SKILL mappings   #
 ######################################
 
 # Each entry: "rule_name.mdc|/path/to/SKILL.md"
@@ -80,7 +110,7 @@ RULES=(
   "python-pro.mdc|${CURSOR_SKILLS_DIR}/python-pro/SKILL.md"
   "bash-pro.mdc|${CURSOR_SKILLS_DIR}/bash-pro/SKILL.md"
 
-  # ~/.codex/skills/*
+  # ~/.codex/skills/* — personal skills
   "backend-architect-brain.mdc|${CODEX_SKILLS_DIR}/backend-architect-brain/SKILL.md"
 )
 
