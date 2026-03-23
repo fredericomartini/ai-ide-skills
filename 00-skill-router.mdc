@@ -40,6 +40,7 @@ Scan the user's prompt. Match to the table below. Select **1–3 skills maximum*
 | Git, rebase, cherry-pick, bisect, branch, worktree        | git-advanced-workflows      |
 | Security, JWT, auth, CORS, API hardening                  | api-security-best-practices |
 | Backend security, input validation, injection             | backend-security-coder      |
+| Backend architect, second brain, senior engineer, design approach | backend-architect-brain     |
 
 ---
 

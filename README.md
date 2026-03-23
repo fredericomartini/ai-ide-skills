@@ -72,6 +72,7 @@ The skill router (`00-skill-router.mdc`) is a Cursor rule that runs on every pro
 | Bash, shell, CLI | `bash-pro` |
 | React, frontend, UI | `react-best-practices` |
 | AWS, Lambda, S3 | `aws-skills` |
+| Backend architect, second brain, senior engineer | `backend-architect-brain` |
 
 For NestJS/backend work, `nestjs-expert` + `backend-dev-guidelines` are always loaded by default.
 
@@ -92,6 +93,7 @@ The `skills/` folder contains personal skills for [Claude Code](https://claude.a
 
 | Skill | Folder | Description |
 |-------|--------|-------------|
+| Backend Architect Brain | `skills/backend-architect-brain/` | Senior backend engineer second brain — design features, understand existing code, implement backend functionality, debug issues, and review backend decisions |
 | Obsidian | `skills/obsidian/` | Full Obsidian vault assistant — add to-dos, capture ideas, manage meeting notes, reading list, and inbox via natural language |
 | End of Day | `skills/end-of-day/` | Daily workflow — morning briefing from Today.md and end-of-day archive + summary |
 
@@ -105,6 +107,9 @@ git clone https://github.com/fredericomartini/ai-ide-skills.git
 # Install skills (PAI requires underscore + uppercase folder names)
 cp -r ai-ide-skills/skills/obsidian ~/.claude/skills/_OBSIDIAN
 cp -r ai-ide-skills/skills/end-of-day ~/.claude/skills/_ENDOFDAY
+
+# Install backend-architect-brain (available in Cursor via install-cursor-skills.sh)
+cp -r ai-ide-skills/skills/backend-architect-brain ~/.codex/skills/backend-architect-brain
 ```
 
 ### Required: set environment variables
