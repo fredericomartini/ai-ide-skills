@@ -1,17 +1,44 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Reproduce a standard .cursor/rules setup in the current project.
-# Run from the project root: ./install-cursor-skills.sh
+#######################################################################
+# install-cursor-skills.sh
+#
+# Sets up Cursor skill routing rules in the current project.
+# Safe to run via curl pipe or directly from a local clone — the
+# script bootstraps itself by cloning/updating the repo first.
+#
+# Usage (from any project root):
+#   bash <(curl -fsSL https://raw.githubusercontent.com/fredericomartini/ai-ide-skills/main/install-cursor-skills.sh)
+#######################################################################
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_URL="https://github.com/fredericomartini/ai-ide-skills.git"
+REPO_LOCAL="${HOME}/.local/share/ai-ide-skills"
+
+# ── Bootstrap ──────────────────────────────────────────────────────────
+# If we're not already running from the canonical local clone, ensure it
+# exists and is up to date, then re-exec from there (CWD is preserved).
+_SCRIPT_DIR=""
+_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-/dev/stdin}")" 2>/dev/null && pwd)" || true
+
+if [[ "${_SCRIPT_DIR}" != "${REPO_LOCAL}" ]]; then
+  if [[ -d "${REPO_LOCAL}/.git" ]]; then
+    echo "Updating ai-ide-skills ..."
+    git -C "${REPO_LOCAL}" pull --ff-only --quiet
+  else
+    echo "Cloning ai-ide-skills into ${REPO_LOCAL} ..."
+    git clone --quiet "${REPO_URL}" "${REPO_LOCAL}"
+  fi
+  exec bash "${REPO_LOCAL}/install-cursor-skills.sh"
+fi
+# ───────────────────────────────────────────────────────────────────────
+
+SCRIPT_DIR="${REPO_LOCAL}"
 RULES_DIR=".cursor/rules"
 CURSOR_SKILLS_DIR="${HOME}/.cursor/skills"
 CODEX_SKILLS_DIR="${HOME}/.codex/skills"
-REPO_RAW="https://raw.githubusercontent.com/fredericomartini/ai-ide-skills/main"
 
 echo "Setting up Cursor rules in: ${RULES_DIR}"
-
 mkdir -p "${RULES_DIR}"
 
 ############################################
@@ -19,17 +46,10 @@ mkdir -p "${RULES_DIR}"
 ############################################
 
 SKILL_ROUTER_FILE="${RULES_DIR}/00-skill-router.mdc"
-SKILL_ROUTER_SOURCE="${SCRIPT_DIR}/00-skill-router.mdc"
 
 if [[ ! -f "${SKILL_ROUTER_FILE}" ]]; then
-  if [[ -f "${SKILL_ROUTER_SOURCE}" ]]; then
-    cp "${SKILL_ROUTER_SOURCE}" "${SKILL_ROUTER_FILE}"
-    echo "Created ${SKILL_ROUTER_FILE} (copied from ${SKILL_ROUTER_SOURCE})"
-  else
-    echo "Downloading 00-skill-router.mdc from GitHub ..."
-    curl -fsSL "${REPO_RAW}/00-skill-router.mdc" -o "${SKILL_ROUTER_FILE}"
-    echo "Created ${SKILL_ROUTER_FILE} (downloaded from GitHub)"
-  fi
+  cp "${SCRIPT_DIR}/00-skill-router.mdc" "${SKILL_ROUTER_FILE}"
+  echo "Created ${SKILL_ROUTER_FILE}"
 else
   echo "Found existing ${SKILL_ROUTER_FILE}, leaving as is."
 fi
@@ -49,19 +69,9 @@ for skill in "${PERSONAL_SKILLS[@]}"; do
   dest_dir="${CODEX_SKILLS_DIR}/${skill}"
   dest="${dest_dir}/SKILL.md"
 
-  if [[ ! -f "${src}" ]]; then
-    echo "  ! WARNING: Personal skill source not found: ${src}" >&2
-    continue
-  fi
-
   mkdir -p "${dest_dir}"
-
-  if [[ -f "${dest}" ]]; then
-    echo "  - ${skill} already installed, skipping."
-  else
-    cp "${src}" "${dest}"
-    echo "  + Installed ${skill} -> ${dest}"
-  fi
+  cp "${src}" "${dest}"
+  echo "  + Installed/updated ${skill} -> ${dest}"
 done
 
 ######################################

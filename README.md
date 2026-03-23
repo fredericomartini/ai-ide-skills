@@ -2,7 +2,7 @@
 
 Cursor skill routing rules for your projects. Installs a smart skill router that automatically loads the right coding guidelines based on your prompt — NestJS, TypeScript, testing, debugging, and more.
 
-## Quick install (run remotely)
+## Quick install
 
 From the root of **any project** where you want the Cursor rules set up:
 
@@ -10,18 +10,13 @@ From the root of **any project** where you want the Cursor rules set up:
 bash <(curl -fsSL https://raw.githubusercontent.com/fredericomartini/ai-ide-skills/main/install-cursor-skills.sh)
 ```
 
-Or clone and run locally:
-
-```bash
-git clone https://github.com/fredericomartini/ai-ide-skills.git
-cd your-project
-../ai-ide-skills/install-cursor-skills.sh
-```
-
-This will:
-- Create `.cursor/rules/` in your project
-- Copy the skill router (`00-skill-router.mdc`) into it
+That's it. The script will:
+- Clone this repo to `~/.local/share/ai-ide-skills` (or pull the latest if already cloned)
+- Copy the skill router (`00-skill-router.mdc`) into `.cursor/rules/`
+- Install personal skills (e.g. `backend-architect-brain`) to `~/.codex/skills/`
 - Symlink all supported skills from your global skills directory (`~/.cursor/skills/`)
+
+Re-running the same command in any project updates personal skills to the latest version.
 
 ## Step 1 — Install domain skills
 
