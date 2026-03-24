@@ -1,7 +1,7 @@
 # Workflow: GenerateFromSPIN (Modo B)
 
 **Input:** Campos SPIN preenchidos manualmente pelo usuário.
-**Output:** Argumentos de fechamento + roteiro narrativo + scoring.
+**Output:** Argumentos de fechamento + objeções previstas + scoring comportamental.
 
 Usar quando o usuário não tem transcrição — dados vêm de WhatsApp, áudio, anotações, memória da conversa.
 
@@ -38,9 +38,7 @@ A partir das informações SPIN já coletadas pelo corretor, identificar as dore
 
 4. Identifique as 3-5 objeções que o comprador provavelmente vai levantar no fechamento — inferidas dos campos Problema/Conflito, Implicação e O que já tentou, além de qualquer sinal de resistência implícito nos dados fornecidos. Para cada objeção, gere um contra-argumento específico.
 
-5. Gere o roteiro narrativo para criativo/anúncio.
-
-6. Calcule o scoring do lead.
+5. Calcule o scoring do lead usando o sistema de indicadores comportamentais abaixo.
 
 # OUTPUT
 
@@ -91,23 +89,46 @@ Com base nos campos SPIN fornecidos — especialmente Problema/Conflito, Implica
 
 ---
 
-## 🎬 ROTEIRO NARRATIVO PARA CRIATIVO/ANÚNCIO
-
-Crie um roteiro narrativo curto (problema → agitação → solução):
-
-- **Problema (2-3 frases):** Descreve a situação de dor de forma que o leitor se reconheça
-- **Agitação (2-3 frases):** Amplia as consequências, o custo emocional de continuar assim
-- **Solução (2-3 frases):** Apresenta o produto como a virada de chave
-
----
-
 ## 📈 SCORING DO LEAD
 
-| Dimensão | Score | Justificativa |
-|----------|-------|---------------|
-| **Prontidão para fechar** | [X]/10 | [sinais de urgência ou resistência identificados] |
-| **Intensidade das dores** | [X]/10 | [quão fortes e urgentes são as dores identificadas] |
-| **Completude do SPIN** | [X]/6 campos | [quais campos estão bem preenchidos, quais precisam de mais informação] |
+### Indicadores de Prontidão
+
+Marque apenas os indicadores com **evidência nos dados SPIN fornecidos**. Não anote sinais que não aparecem no input.
+
+**Sinais de compra:**
+| Indicador | Observado? | Evidência |
+|-----------|-----------|-----------|
+| Mencionou prazo de decisão próprio | Sim / Não | [campo SPIN ou dado] |
+| Trouxe cônjuge ou decisor à reunião | Sim / Não | [campo SPIN ou dado] |
+| Perguntou sobre condições de pagamento ou financiamento | Sim / Não | [campo SPIN ou dado] |
+| Perguntou sobre disponibilidade de unidades específicas | Sim / Não | [campo SPIN ou dado] |
+| Fez ou agendou visita presencial ao empreendimento | Sim / Não | [campo SPIN ou dado] |
+| Pediu para ver documentação ou contrato | Sim / Não | [campo SPIN ou dado] |
+
+**Sinais de resistência:**
+| Indicador | Observado? | Evidência |
+|-----------|-----------|-----------|
+| Evitou o assunto de preço ou mudou de assunto quando mencionado | Sim / Não | [campo SPIN ou dado] |
+| Disse "vou pensar" sem comprometer próximo passo concreto | Sim / Não | [campo SPIN ou dado] |
+| Decisor principal ausente, precisa "consultar X" sem data | Sim / Não | [campo SPIN ou dado] |
+
+*Pesos: prazo próprio=+3, cônjuge/decisor=+3, condições de pagamento=+2, unidade específica=+2, visita=+1, documentação=+1; evitou preço=−2, "vou pensar"=−2, decisor ausente=−3. Normalize para escala 1-10.*
+
+**Prontidão para fechar: [X]/10**
+
+### Intensidade das Dores
+
+- **Alta:** dor mencionada explicitamente com linguagem emocional carregada OU conectada a consequência concreta
+- **Média:** dor mencionada, sem elaboração emocional
+- **Baixa:** inferida a partir de outros campos, não dita diretamente
+
+**Intensidade das dores: [X]/10** *[1-2 frases sobre as dores principais]*
+
+### Completude do SPIN
+
+**Completude: [X]/6 campos** *[quais estão ricos, quais rasos ou ausentes]*
+
+---
 
 **Recomendação:** [1-2 frases — vale agir agora? Que informação falta coletar?]
 ```

@@ -72,8 +72,9 @@ Combine transcrições + campos manuais. Campos manuais têm prioridade sobre os
 
 1. **Tabela SPIN Consolidada** + dores identificadas + argumentos de fechamento personalizados
 2. **Objeções Previstas** — 3-5 objeções com sinal observado + contra-argumento específico
-3. **Roteiro Narrativo** para criativo/anúncio (problema → agitação → solução)
-4. **Scoring do Lead** — prontidão para fechar, intensidade das dores, completude SPIN
+3. **Scoring Comportamental** — indicadores objetivos de prontidão (prazo, decisor, pagamento, visita) com pesos + intensidade das dores + completude SPIN
+
+> O roteiro narrativo para criativo/anúncio é gerado pela skill [[Copywriter]], que recebe o output do Closer como input.
 
 ---
 

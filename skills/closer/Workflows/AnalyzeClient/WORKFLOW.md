@@ -1,7 +1,7 @@
 # Workflow: AnalyzeClient (Modo A)
 
 **Input:** Uma ou mais transcrições de reuniões com o mesmo cliente.
-**Output:** SPIN consolidado + argumentos de fechamento + roteiro narrativo + scoring.
+**Output:** SPIN consolidado + dores identificadas + argumentos de fechamento + objeções previstas + scoring comportamental.
 
 ---
 
@@ -40,9 +40,7 @@ Adicionalmente, capture: **O que já tentou** — tentativas anteriores de resol
 
 5. Identifique as 3-5 objeções que o comprador provavelmente vai levantar no fechamento — baseando-se em hesitações, perguntas repetidas, temas evitados, mudanças de tom, e sinais implícitos identificados nas reuniões. Para cada objeção, gere um contra-argumento específico para este cliente (não genérico).
 
-6. Gere o roteiro narrativo para criativo/anúncio.
-
-7. Calcule o scoring do lead.
+6. Calcule o scoring do lead usando o sistema de indicadores comportamentais abaixo.
 
 # OUTPUT
 
@@ -93,26 +91,47 @@ Com base nas hesitações, mudanças de tom, perguntas repetidas, temas evitados
 
 ---
 
-## 🎬 ROTEIRO NARRATIVO PARA CRIATIVO/ANÚNCIO
-
-Crie um roteiro narrativo curto (problema → agitação → solução) baseado no perfil real deste cliente. Deve parecer que foi escrito para pessoas exatamente como ele.
-
-**Estrutura:**
-- **Problema (2-3 frases):** Descreve a situação de dor de forma que o leitor se reconheça
-- **Agitação (2-3 frases):** Amplia as consequências, o custo emocional de continuar assim
-- **Solução (2-3 frases):** Apresenta o imóvel/produto como a virada de chave
-
-*Nota: Este roteiro é baseado no perfil de um cliente real e deve ser adaptado antes de publicar para preservar privacidade.*
-
----
-
 ## 📈 SCORING DO LEAD
 
-| Dimensão | Score | Justificativa |
-|----------|-------|---------------|
-| **Prontidão para fechar** | [X]/10 | [2-3 sinais de compra identificados ou ausentes] |
-| **Intensidade das dores** | [X]/10 | [quão fortes e urgentes são as dores identificadas] |
-| **Completude do SPIN** | [X]/6 campos | [quais campos estão bem preenchidos, quais estão fracos ou ausentes] |
+### Indicadores de Prontidão
+
+Marque apenas os indicadores com **evidência observada** nas reuniões. Não anote sinais que não apareceram.
+
+**Sinais de compra:**
+| Indicador | Observado? | Evidência |
+|-----------|-----------|-----------|
+| Mencionou prazo de decisão próprio | Sim / Não | [frase ou contexto] |
+| Trouxe cônjuge ou decisor à reunião | Sim / Não | [frase ou contexto] |
+| Perguntou sobre condições de pagamento ou financiamento | Sim / Não | [frase ou contexto] |
+| Perguntou sobre disponibilidade de unidades específicas | Sim / Não | [frase ou contexto] |
+| Fez ou agendou visita presencial ao empreendimento | Sim / Não | [frase ou contexto] |
+| Pediu para ver documentação ou contrato | Sim / Não | [frase ou contexto] |
+
+**Sinais de resistência:**
+| Indicador | Observado? | Evidência |
+|-----------|-----------|-----------|
+| Evitou o assunto de preço ou mudou de assunto quando mencionado | Sim / Não | [frase ou contexto] |
+| Disse "vou pensar" sem comprometer próximo passo concreto | Sim / Não | [frase ou contexto] |
+| Decisor principal ausente, precisa "consultar X" sem data | Sim / Não | [frase ou contexto] |
+
+*Pesos: prazo próprio=+3, cônjuge/decisor=+3, condições de pagamento=+2, unidade específica=+2, visita=+1, documentação=+1; evitou preço=−2, "vou pensar"=−2, decisor ausente=−3. Normalize para escala 1-10.*
+
+**Prontidão para fechar: [X]/10**
+
+### Intensidade das Dores
+
+Classifique cada dor identificada:
+- **Alta:** mencionada em múltiplas reuniões OU com linguagem emocional carregada OU conectada a consequência concreta
+- **Média:** mencionada uma vez, sem elaboração emocional forte
+- **Baixa:** inferida, não dita explicitamente
+
+**Intensidade das dores: [X]/10** *[1-2 frases sobre as dores principais]*
+
+### Completude do SPIN
+
+**Completude: [X]/6 campos** *[quais estão ricos, quais estão rasos ou ausentes]*
+
+---
 
 **Recomendação:** [1-2 frases — vale agir agora? O que falta para fechar?]
 ```
