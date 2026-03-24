@@ -17,9 +17,14 @@ Ferramenta de suporte ao corretor no momento de fechamento. Extrai e consolida i
 
 ### Modo A — Transcrições (Google Meet ou qualquer fonte de texto)
 
-Forneça um ou mais arquivos de transcrição. Use separadores claros:
+Forneça um ou mais arquivos de transcrição. Adicione VENDEDOR e PRODUTO antes das transcrições (opcional mas recomendado):
 
 ```
+VENDEDOR: [nome do corretor/vendedor + o que está vendendo]
+PRODUTO: [nome do produto, preço, condições de pagamento, diferenciais]
+
+---
+
 [REUNIÃO 1 — YYYY-MM-DD]
 <conteúdo da transcrição>
 
@@ -40,7 +45,10 @@ Forneça um ou mais arquivos de transcrição. Use separadores claros:
 Preencha o template abaixo (para WhatsApp, áudio, conversas sem transcrição):
 
 ```
-NOME: [nome do cliente]
+VENDEDOR: [nome do corretor/vendedor + o que está vendendo]
+PRODUTO: [nome do produto, preço, condições de pagamento, diferenciais]
+
+NOME: [nome do cliente/comprador]
 CONTEXTO/SITUAÇÃO: [como está a vida do cliente hoje]
 PROBLEMA/CONFLITO: [o que está incomodando, o que não está funcionando]
 IMPLICAÇÃO/FUNDO DO POÇO: [o que acontece se o problema continuar]
@@ -63,8 +71,9 @@ Combine transcrições + campos manuais. Campos manuais têm prioridade sobre os
 ## Outputs
 
 1. **Tabela SPIN Consolidada** + dores identificadas + argumentos de fechamento personalizados
-2. **Roteiro Narrativo** para criativo/anúncio (problema → agitação → solução)
-3. **Scoring do Lead** — prontidão para fechar, intensidade das dores, completude SPIN
+2. **Objeções Previstas** — 3-5 objeções com sinal observado + contra-argumento específico
+3. **Roteiro Narrativo** para criativo/anúncio (problema → agitação → solução)
+4. **Scoring do Lead** — prontidão para fechar, intensidade das dores, completude SPIN
 
 ---
 
