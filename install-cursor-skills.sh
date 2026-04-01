@@ -85,7 +85,6 @@ RULES=(
   "nestjs-expert.mdc|${CURSOR_SKILLS_DIR}/nestjs-expert/SKILL.md"
   "backend-dev-guidelines.mdc|${CURSOR_SKILLS_DIR}/backend-dev-guidelines/SKILL.md"
   "nosql-expert.mdc|${CURSOR_SKILLS_DIR}/nosql-expert/SKILL.md"
-  "typescript-pro.mdc|${CURSOR_SKILLS_DIR}/typescript-pro/SKILL.md"
   "typescript-expert.mdc|${CURSOR_SKILLS_DIR}/typescript-expert/SKILL.md"
   "nodejs-best-practices.mdc|${CURSOR_SKILLS_DIR}/nodejs-best-practices/SKILL.md"
 
@@ -95,7 +94,6 @@ RULES=(
 
   # Code quality & review
   "code-reviewer.mdc|${CURSOR_SKILLS_DIR}/code-reviewer/SKILL.md"
-  "code-review-checklist.mdc|${CURSOR_SKILLS_DIR}/code-review-checklist/SKILL.md"
   "systematic-debugging.mdc|${CURSOR_SKILLS_DIR}/systematic-debugging/SKILL.md"
 
   # Testing
@@ -116,8 +114,6 @@ RULES=(
   "api-security-best-practices.mdc|${CURSOR_SKILLS_DIR}/api-security-best-practices/SKILL.md"
   "backend-security-coder.mdc|${CURSOR_SKILLS_DIR}/backend-security-coder/SKILL.md"
 
-  # Python (on demand)
-  "python-pro.mdc|${CURSOR_SKILLS_DIR}/python-pro/SKILL.md"
   "bash-pro.mdc|${CURSOR_SKILLS_DIR}/bash-pro/SKILL.md"
 
   # ~/.codex/skills/* — personal skills
